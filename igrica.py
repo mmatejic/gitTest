@@ -5,9 +5,11 @@ import pygame
 
 pygame.init()
 
-kasnjenjeKonst = 0.003
+pauzaFlag = False
+kasnjenjeKonst = 0.001
 prozor = pygame.display.set_mode((1000, 500))
 pozadina = pygame.image.load("background.png")
+pauza = pygame.image.load("pauza.png")
 pygame.display.set_caption("Jumping car")
 isJump = False
 jumpCount = 9
@@ -16,11 +18,13 @@ pozadinaCounter = 0
 poeni = 0
 class Igrac():
     x = 50
-    y = 420
-    velicina = 20
+    y = 370
+    velicinaX = 170
+    velicinaY = 70
     boja = (255, 0, 0)
     brzina = 1
-    hitbox = pygame.Rect(x, y, velicina, velicina)
+    hitbox = pygame.Rect(x, y, velicinaX, velicinaY)
+    slika = pygame.image.load("auto.png")
 
 class Prepreka():
     x = 1050
@@ -36,26 +40,32 @@ class Prepreka():
 
 def uvecavajBrzinu():
     global delay
+    global pauzaFlag
     while run:
-        time.sleep(1)
-        delay *= 0.95
+        if not pauzaFlag:
+            time.sleep(1)
+            delay *= 0.95
+
 def tredPoeni():
     global poeni
+    global pauzaFlag
     while run:
-        time.sleep(delay)
-        poeni += 1
+        if not pauzaFlag:
+            time.sleep(delay)
+            poeni += 1
 
 def pomerajPrepreku(p):
     global delay
     global pozadinaCounter
     while run:
-        time.sleep(delay)
-        if p.x < -50:
-            p.x = 1050
-        p.x -= p.brzina
-        pozadinaCounter -= 3
-        if pozadinaCounter < -980:
-            pozadinaCounter = 0
+        if not pauzaFlag:
+            time.sleep(delay)
+            if p.x < -50:
+                p.x = 1050
+            p.x -= p.brzina
+            pozadinaCounter -= 3
+            if pozadinaCounter < -980:
+                pozadinaCounter = 0
 
 def skoci():
     global isJump
@@ -85,10 +95,12 @@ def osveziEkran():
     global poeni
     prozor.fill((255, 255, 255))
     prepreka.hitbox = pygame.Rect(prepreka.x + prepreka.velicina, prepreka.y, prepreka.velicina, prepreka.velicina)
-    igrac.hitbox = pygame.Rect(igrac.x + prepreka.velicina, igrac.y, 20, 20)
+    igrac.hitbox = pygame.Rect(igrac.x, igrac.y, igrac.velicinaX, igrac.velicinaY)
+    #pygame.draw.rect(prozor, (0, 0, 0), pygame.Rect(50, 50, 50, 50), 5)
     prozor.blit(pozadina, (pozadinaCounter, 0))
+    prozor.blit(pauza, (950, 0))
     poeniPrint(prozor, ('Poeni: ' + str(poeni)))
-    pygame.draw.rect(prozor, igrac.boja, (igrac.x, igrac.y, igrac.velicina, igrac.velicina))
+    prozor.blit(igrac.slika, (igrac.x, igrac.y))
     prozor.blit(prepreka.slika, (prepreka.x, prepreka.y))
     pygame.display.flip()
 
@@ -143,14 +155,23 @@ poeniTred = Thread(target=tredPoeni, args=()).start()
 
 def main():
     global run
-    global delay   
-
+    global delay
+    global pauzaFlag
     osveziEkran()
     while run:
         pygame.time.delay(1)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                if pygame.Rect(950, 0, 50, 50).collidepoint(x, y):
+                    pauzaFlag = True
+                    while pauzaFlag:
+                        for r in pygame.event.get():
+                            if r.type == pygame.MOUSEBUTTONDOWN:
+                                pauzaFlag = False
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE] and not t1.isAlive():
             t1.start()
