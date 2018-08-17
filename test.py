@@ -21,11 +21,11 @@ class Igrac():
     hitbox = pygame.Rect(x, y, velicina, velicina)
 
 class Prepreka():
-    x = 1020
+    x = 1050
     y = 390
     velicina = 50
     boja = (0, 0, 255)
-    brzina = 5
+    brzina = 3
     hitbox = pygame.Rect(x, y, velicina, velicina)
     slika = pygame.image.load('kutija.jpg')
 
@@ -36,20 +36,18 @@ def uvecavajBrzinu():
     global delay
     while run:
         time.sleep(1)
-        delay *= 0.99
+        delay *= 0.95
 
 def pomerajPrepreku(p):
     global delay
-    print(delay)
     global pozadinaCounter
     while run:
         time.sleep(delay)
-        print(delay)
         if p.x < -50:
-            p.x = 550
+            p.x = 1050
         p.x -= p.brzina
-        pozadinaCounter -= 1
-        if pozadinaCounter < -981:
+        pozadinaCounter -= 3
+        if pozadinaCounter < -980:
             pozadinaCounter = 0
 
 def skoci():
@@ -81,7 +79,7 @@ def osveziEkran():
     prepreka.hitbox = pygame.Rect(prepreka.x + prepreka.velicina, prepreka.y, prepreka.velicina, prepreka.velicina)
     igrac.hitbox = pygame.Rect(igrac.x + prepreka.velicina, igrac.y, 20, 20)
     prozor.blit(pozadina, (pozadinaCounter, 0))
-    text_to_screen(prozor, ('Brzina: ' + str(delay)))
+    text_to_screen(prozor, ('Brzina: ' + str("%.5f" % delay)))
     pygame.draw.rect(prozor, igrac.boja, (igrac.x, igrac.y, igrac.velicina, igrac.velicina))
     prozor.blit(prepreka.slika, (prepreka.x, prepreka.y))
     pygame.display.flip()
@@ -95,7 +93,6 @@ def text_to_screen(screen, text, x = 50, y = 50, size = 50, color = (200, 000, 0
 def gameOver():
     global delay
     global run
-    #global delay
     gameOver = pygame.image.load('gameOver.png')
     prozor.fill((0, 0, 0))
     playAgainRect = pygame.Rect(150, 300, 75, 75)
@@ -114,7 +111,7 @@ def gameOver():
                 x, y = event.pos
                 if playAgainRect.collidepoint(x, y):
                     cekaj = False
-                    delay = 0.002
+                    delay = 0.003
                     main()
                 elif quitRect.collidepoint(x, y):
                     run = False
