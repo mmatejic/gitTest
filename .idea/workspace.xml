@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b559ab3-5669-4d63-a011-df4ad3feb418" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,12 +34,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4049" />
+          <entry key="py" value="4312" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4049" />
+          <entry key="Python" value="4312" />
         </counts>
       </usages-collector>
     </session>
@@ -50,16 +49,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="312">
+              <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-                <marker date="1534520632350" expanded="true" signature="720:798" ph="..." />
-                <marker date="1534520632350" expanded="true" signature="1106:3581" ph="..." />
-                <marker date="1534520632350" expanded="true" signature="1630:1632" ph="..." />
-                <marker date="1534520632350" expanded="true" signature="2286:2287" ph="..." />
-                <marker date="1534520632350" expanded="true" signature="2467:3581" ph="..." />
-                <marker date="1534520632350" expanded="true" signature="3725:3726" ph="..." />
+                <marker date="1534521375686" expanded="true" signature="871:933" ph="..." />
+                <marker date="1534521375686" expanded="true" signature="1220:3751" ph="..." />
+                <marker date="1534521375686" expanded="true" signature="1744:1746" ph="..." />
+                <marker date="1534521375686" expanded="true" signature="2400:2401" ph="..." />
+                <marker date="1534521375686" expanded="true" signature="2581:3751" ph="..." />
+                <marker date="1534521375686" expanded="true" signature="3949:3950" ph="..." />
               </folding>
             </state>
           </provider>
@@ -77,6 +76,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>delay =</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,7 +143,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\mihailo.matejic\PycharmProjects\gitTest\igrica.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -221,16 +221,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="312">
+          <caret line="145" column="19" lean-forward="true" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1534520632350" expanded="true" signature="720:798" ph="..." />
-            <marker date="1534520632350" expanded="true" signature="1106:3581" ph="..." />
-            <marker date="1534520632350" expanded="true" signature="1630:1632" ph="..." />
-            <marker date="1534520632350" expanded="true" signature="2286:2287" ph="..." />
-            <marker date="1534520632350" expanded="true" signature="2467:3581" ph="..." />
-            <marker date="1534520632350" expanded="true" signature="3725:3726" ph="..." />
+            <marker date="1534521375686" expanded="true" signature="871:933" ph="..." />
+            <marker date="1534521375686" expanded="true" signature="1220:3751" ph="..." />
+            <marker date="1534521375686" expanded="true" signature="1744:1746" ph="..." />
+            <marker date="1534521375686" expanded="true" signature="2400:2401" ph="..." />
+            <marker date="1534521375686" expanded="true" signature="2581:3751" ph="..." />
+            <marker date="1534521375686" expanded="true" signature="3949:3950" ph="..." />
           </folding>
         </state>
       </provider>
