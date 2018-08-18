@@ -63,7 +63,7 @@ def pomerajPrepreku(p):
             if p.x < -50:
                 p.x = 1050
             p.x -= p.brzina
-            pozadinaCounter -= 3
+            pozadinaCounter -= prepreka.brzina
             if pozadinaCounter < -980:
                 pozadinaCounter = 0
 
@@ -94,7 +94,7 @@ def osveziEkran():
     global pozadinaCounter
     global poeni
     prozor.fill((255, 255, 255))
-    prepreka.hitbox = pygame.Rect(prepreka.x + prepreka.velicina, prepreka.y, prepreka.velicina, prepreka.velicina)
+    prepreka.hitbox = pygame.Rect(prepreka.x, prepreka.y, prepreka.velicina, prepreka.velicina)
     igrac.hitbox = pygame.Rect(igrac.x, igrac.y, igrac.velicinaX, igrac.velicinaY)
     #pygame.draw.rect(prozor, (0, 0, 0), pygame.Rect(50, 50, 50, 50), 5)
     prozor.blit(pozadina, (pozadinaCounter, 0))
